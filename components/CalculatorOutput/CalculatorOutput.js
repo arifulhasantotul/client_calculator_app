@@ -67,9 +67,9 @@ const CalculatorOutput = () => {
                       letterSpacing: "0.8px",
                       textTransform: "uppercase",
                     }}
-                    align="center"
+                    align="left"
                   >
-                    Item
+                    Items
                   </TableCell>
                   <TableCell
                     sx={{
@@ -79,7 +79,7 @@ const CalculatorOutput = () => {
                       letterSpacing: "0.8px",
                       textTransform: "uppercase",
                     }}
-                    align="center"
+                    align="right"
                   >
                     Amount
                   </TableCell>

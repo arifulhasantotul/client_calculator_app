@@ -350,7 +350,7 @@ const CalculatorInput = () => {
       {finalErr ? (
         <CustomAlert
           type="error"
-          msg={"Please fill all the fields!"}
+          msg={"Invalid data or Please fill all the fields!"}
           open={finalErr}
           setOpen={setFinalErr}
         />
