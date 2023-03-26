@@ -14,21 +14,21 @@ export const totalCostCalculate = (necessaryData) => {
   } = necessaryData;
   let totalPlates = Math.ceil(pages / 4); // m = (y/4)
 
-  let totalPlateCost = Math.ceil(totalPlates * perPlateCost); // m*w1
+  let totalPlateCost = totalPlates * perPlateCost; // m*w1
 
-  let totalRimOfPapers = Math.ceil((pages * copies) / 8000); // (y*x)/8000
+  let totalRimOfPapers = (pages * copies) / 8000; // (y*x)/8000
 
-  let totalPaperCost = Math.ceil(totalRimOfPapers * perRimPageCost); // (y*x*z)/8000
+  let totalPaperCost = totalRimOfPapers * perRimPageCost; // (y*x*z)/8000
 
   let totalCoverBoards = Math.ceil(copies / 8); // n = x/8
 
-  let totalCoverBoardCost = Math.ceil(totalCoverBoards * perCoverBoardCost); // n*w2
+  let totalCoverBoardCost = totalCoverBoards * perCoverBoardCost; // n*w2
 
-  let totalLaminationCost = Math.ceil(copies * coverLaminationCost);
+  let totalLaminationCost = copies * coverLaminationCost;
 
-  let totalCrisingCost = Math.ceil(copies * coverCrisingCost);
+  let totalCrisingCost = copies * coverCrisingCost;
 
-  let totalBookBindingCost = Math.ceil(copies * bookBindingCost);
+  let totalBookBindingCost = copies * bookBindingCost;
 
   // formula for total cost
   let totalCost =
@@ -44,7 +44,7 @@ export const totalCostCalculate = (necessaryData) => {
     totalCost += totalPlateCost;
   }
   // formula for per piece cost
-  let perPieceCost = Math.ceil(totalCost / copies);
+  let perPieceCost = totalCost / copies;
 
   return {
     totalPlates,

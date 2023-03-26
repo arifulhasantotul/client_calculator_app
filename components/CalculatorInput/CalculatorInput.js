@@ -1,4 +1,5 @@
 import LoadingBtn from "@/components/LoadingBtn/LoadingBtn";
+import qna from "@/public/qna_logo.png";
 import styles from "@/styles/CalculatorInput.module.css";
 import { saveToLocalStorage } from "@/utils/temporarySave";
 import {
@@ -9,6 +10,8 @@ import {
   Select,
   TextField,
 } from "@mui/material";
+import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { MdClear, MdSend } from "react-icons/md";
@@ -111,7 +114,12 @@ const CalculatorInput = () => {
 
   return (
     <div className={styles.compWrapper}>
-      <h2>Book Cost Calculator</h2>
+      <div className={styles.page_head}>
+        <div className={styles.logo}>
+          <Image src={qna} alt="qna_logo" layout="fill" />
+        </div>
+        <h2>Book Cost Calculator</h2>
+      </div>
       <form onSubmit={handleSubmit} className={styles.formWrapper}>
         {/* edition */}
         <div className={styles.formGroup}>
@@ -194,7 +202,7 @@ const CalculatorInput = () => {
           <TextField
             fullWidth
             id="standard-number"
-            label="Paper cost per rim"
+            label="Paper cost (Per Rim)"
             type="number"
             name="perRimPageCost"
             value={calcInput?.perRimPageCost || ""}
@@ -329,6 +337,15 @@ const CalculatorInput = () => {
             &#9888; {errorCalcInput?.bookBindingCost}
           </p>
         )}
+        <p
+          style={{
+            textAlign: "center",
+            marginTop: "20px",
+            color: "#6a63a9",
+          }}
+        >
+          Want to become our dealer? <Link href="/">Fill up this form</Link>
+        </p>
         {!isLoading ? (
           <div className={styles.btnGroup}>
             <Button
@@ -347,6 +364,7 @@ const CalculatorInput = () => {
           <LoadingBtn />
         )}
       </form>
+
       {finalErr ? (
         <CustomAlert
           type="error"

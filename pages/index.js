@@ -1,4 +1,5 @@
 import CalculatorInput from "@/components/CalculatorInput/CalculatorInput";
+import LayoutComponent from "@/components/Layout/Layout";
 import styles from "@/styles/Home.module.css";
 import Head from "next/head";
 
@@ -12,7 +13,9 @@ export default function HomePage() {
       </Head>
 
       <main className={styles.main}>
-        <CalculatorInput />
+        <LayoutComponent>
+          <CalculatorInput />
+        </LayoutComponent>
       </main>
     </div>
   );

@@ -1,0 +1,38 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  margin: 20px 0;
+}
+
+.figure {
+  position: relative;
+  width: 150px;
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 900px) {
+  .wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .figure {
+    margin: 10px 10px;
+  }
+}
+
+@media (max-width: 900px) {
+  .figure {
+    width: 130px;
+    height: 170px;
+    margin: 5px 5px;
+  }
+}

@@ -1,3 +1,4 @@
+import qna from "@/public/qna_logo.png";
 import styles from "@/styles/CalculatorOutput.module.css";
 import {
   Table,
@@ -7,6 +8,8 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { totalCostCalculate } from "./formulas";
 
@@ -52,7 +55,12 @@ const CalculatorOutput = () => {
 
   return (
     <div className={styles.compWrapper}>
-      <h2>Book Cost Calculator</h2>
+      <div className={styles.page_head}>
+        <div className={styles.logo}>
+          <Image src={qna} alt="qna_logo" layout="fill" />
+        </div>
+        <h2>Book Cost Calculator</h2>
+      </div>
       <div className={styles.formWrapper}>
         {calcInput ? (
           <TableContainer>
@@ -92,7 +100,7 @@ const CalculatorOutput = () => {
                 >
                   <TableCell align="left">Total Plates</TableCell>
                   <TableCell align="right">
-                    {finalOutput?.totalPlates}
+                    {calcInput?.edition === 1 ? finalOutput?.totalPlates : 0}
                   </TableCell>
                 </TableRow>
                 {/* total plate cost */}
@@ -101,7 +109,7 @@ const CalculatorOutput = () => {
                 >
                   <TableCell align="left">Total Plate Cost </TableCell>
                   <TableCell align="right">
-                    {finalOutput?.totalPlateCost}
+                    {calcInput?.edition === 1 ? finalOutput?.totalPlateCost : 0}
                   </TableCell>
                 </TableRow>
                 {/* total rim of papers */}
@@ -198,6 +206,15 @@ const CalculatorOutput = () => {
             <h5>Per piece Cost</h5>
             <p>{finalOutput?.perPieceCost}</p>
           </div>
+          <p
+            style={{
+              textAlign: "center",
+              marginTop: "20px",
+              color: "#6a63a9",
+            }}
+          >
+            Want to become our dealer? <Link href="/">Fill up this form</Link>
+          </p>
         </div>
       </div>
     </div>
