@@ -9,7 +9,6 @@ import {
   TableRow,
 } from "@mui/material";
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { totalCostCalculate } from "./formulas";
 
@@ -43,6 +42,10 @@ const CalculatorOutput = () => {
     totalCost: 0,
     perPieceCost: 0,
   });
+
+  const goToForm = () => {
+    window.location.href = "https://forms.gle/CkabbkoTVSpiEE887";
+  };
 
   useEffect(() => {
     const data = localStorage.getItem("calculatorInput");
@@ -213,7 +216,16 @@ const CalculatorOutput = () => {
               color: "#6a63a9",
             }}
           >
-            Want to become our dealer? <Link href="/">Fill up this form</Link>
+            Want to become our dealer?{" "}
+            <a
+              href="https://forms.gle/CkabbkoTVSpiEE887"
+              target="_blank"
+              style={{
+                cursor: "pointer",
+              }}
+            >
+              <u>Fill up this form</u>
+            </a>
           </p>
         </div>
       </div>
