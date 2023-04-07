@@ -229,11 +229,11 @@ const CalculatorOutput = () => {
         <div className={styles.result}>
           <div className={styles.resultItem}>
             <h5>Total Cost</h5>
-            <p>{finalOutput?.totalCost}</p>
+            <p>{finalOutput?.totalCost.toString(2)}</p>
           </div>
           <div className={styles.resultItem}>
             <h5>Per piece Cost</h5>
-            <p>{finalOutput?.perPieceCost}</p>
+            <p>{finalOutput?.perPieceCost.toString(2)}</p>
           </div>
           <p
             style={{
@@ -298,5 +298,4 @@ export default CalculatorOutput;
   let totalCrisingCost = copies * coverCrisingCost;
   
   let totalBookBindingCost = copies * bookBindingCost;
-
 */
