@@ -1,6 +1,7 @@
 import qna from "@/public/qna_logo.png";
 import styles from "@/styles/CalculatorOutput.module.css";
 import {
+  Button,
   Table,
   TableBody,
   TableCell,
@@ -9,10 +10,13 @@ import {
   TableRow,
 } from "@mui/material";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { MdCheck } from "react-icons/md";
 import { totalCostCalculate } from "./formulas";
 
 const CalculatorOutput = () => {
+  const router = useRouter();
   const initialInput = {
     edition: "",
     copies: "",
@@ -43,8 +47,30 @@ const CalculatorOutput = () => {
     perPieceCost: 0,
   });
 
-  const goToForm = () => {
-    window.location.href = "https://forms.gle/CkabbkoTVSpiEE887";
+  const handleComplete = async () => {
+    try {
+      localStorage.removeItem("calculatorInput");
+      setCalcInput(initialInput);
+      setFinalOutput({
+        totalPlates: 0,
+        totalPlateCost: 0,
+        totalRimOfPapers: 0,
+        totalPaperCost: 0,
+        totalCoverBoards: 0,
+        totalCoverBoardCost: 0,
+        totalLaminationCost: 0,
+        totalCrisingCost: 0,
+        totalBookBindingCost: 0,
+        totalCost: 0,
+        perPieceCost: 0,
+      });
+      router.push("/");
+    } catch (err) {
+      console.log(
+        "🚀 ~ file: CalculatorOutput.js:69 ~ handleComplete ~ err:",
+        err
+      );
+    }
   };
 
   useEffect(() => {
@@ -227,6 +253,23 @@ const CalculatorOutput = () => {
               <u>Fill up this form</u>
             </a>
           </p>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "20px",
+            }}
+          >
+            <Button
+              variant="outlined"
+              color="success"
+              endIcon={<MdCheck />}
+              onClick={handleComplete}
+              title="Clear all data and go to home page"
+            >
+              Complete
+            </Button>
+          </div>
         </div>
       </div>
     </div>

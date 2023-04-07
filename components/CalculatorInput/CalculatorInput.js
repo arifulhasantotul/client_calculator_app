@@ -41,7 +41,10 @@ const CalculatorInput = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setCalcInput((prev) => ({ ...prev, [name]: value ? parseInt(value) : 0 }));
+    setCalcInput((prev) => ({
+      ...prev,
+      [name]: value ? parseFloat(value) : 0,
+    }));
   };
 
   const checkValidation = (e) => {
